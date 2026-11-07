@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: gap-ranking-consistency
+expected_outcome: |
+  Ranks the six assumptions in problem-model.yaml by Assumptions Mapping with the fixed importance test: ASM-1 and ASM-6 test first, ASM-2 test next, ASM-3 a foundation not to research, ASM-4 and ASM-5 deferred, each placement justified by what the assumption breaks if wrong.
+context:
+  scaffold_script: place-files.sh

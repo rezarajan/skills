@@ -1,0 +1,122 @@
+# Problem model — see references/model-schema.md for field definitions.
+meta:
+  title: Missed follow-up on abnormal test results
+  status: loop
+  depth_mode: working
+  updated: 2026-11-07
+  domain:
+    - part: result routing
+      classification: complicated
+      rationale: The path from lab to nurse can be traced by inspecting the systems involved.
+    - part: follow-up behaviour
+      classification: complex
+      rationale: Depends on workload, handovers and team norms; outcomes emerge.
+  wicked_indicators: []
+scope:
+  in: [outpatient clinics, abnormal laboratory results]
+  out: [inpatient wards, imaging results]
+  deferred: [patient-initiated follow-up]
+problem_statements:
+  - id: PS-1
+    text: Clinic nurses miss follow-up on abnormal results when trying to contact patients promptly, because results arrive outside their working queue, resulting in delayed patient contact.
+    version_note: first version
+    alternative_framing: Ownership of follow-up is unclear between nurses and ordering physicians.
+candidate_solutions: [reminder app]
+stakeholders:
+  - id: STK-1
+    name: Clinic nurses
+    roles: [end_user, operator]
+    primary: true
+    primary_reason: They own patient follow-up, so their workflow must change for outcomes to improve.
+  - id: STK-2
+    name: Patients with abnormal results
+    roles: [beneficiary]
+    primary: false
+problems:
+  - id: PRB-1
+    statement: Abnormal results go without recorded follow-up for more than seven days
+    kind: symptom
+    experienced_by: [STK-2]
+    priority: {seriousness: high, urgency: high, growth: low, score: 8, evidence_strength: low, rationale: Delayed contact can delay treatment.}
+    basis: observation
+    provenance: user
+    confidence: moderate
+    supported_by: []
+assumptions:
+  - id: ASM-1
+    statement: Nurses see every abnormal result that needs their follow-up
+    category: contextual
+    if_wrong_breaks: [STK-1]
+    supported_by: []
+    test: Audit a month of abnormal results against each nurse's queue.
+  - id: ASM-2
+    statement: Results arrive outside the nurses' working queue
+    category: causal
+    if_wrong_breaks: [PS-1]
+    supported_by: [EVD-1]
+    test: Trace ten recent missed results from lab to nurse.
+  - id: ASM-3
+    statement: Delayed follow-up leads to delayed treatment
+    category: causal
+    if_wrong_breaks: [PRB-1]
+    supported_by: [EVD-2]
+    test: Already established by published evidence; recheck only if contradicted.
+  - id: ASM-4
+    statement: Nurses would prefer mobile alerts to desktop alerts
+    category: desirability
+    if_wrong_breaks: []
+    supported_by: []
+    related: [STK-1]
+  - id: ASM-5
+    statement: Clinic managers would fund a change to the result workflow
+    category: viability
+    if_wrong_breaks: []
+    supported_by: [EVD-3]
+  - id: ASM-6
+    statement: Missed follow-ups are not concentrated in one clinic
+    category: contextual
+    if_wrong_breaks: [PS-1]
+    supported_by: []
+    test: Break down missed follow-ups by clinic for the last quarter.
+evidence:
+  - id: EVD-1
+    summary: One nurse said results for patients of visiting physicians land in a shared inbox nobody checks
+    source: User, conversation, 2026-11-07
+    kind: anecdotal
+    say_or_do: say
+    population: one nurse at one clinic
+    certainty: low
+    downgrades: [imprecision]
+    collected_by: user
+  - id: EVD-2
+    summary: Systematic review finds missed test-result follow-up is associated with delayed diagnosis and treatment
+    source: Published systematic review of test-result follow-up in ambulatory care
+    kind: indirect
+    say_or_do: do
+    population: ambulatory care patients, multiple countries
+    certainty: high
+    downgrades: []
+    collected_by: third_party
+  - id: EVD-3
+    summary: A clinic manager mentioned there may be budget for workflow changes next year
+    source: User, conversation, 2026-11-07
+    kind: anecdotal
+    say_or_do: say
+    population: one clinic manager
+    certainty: low
+    downgrades: [imprecision]
+    collected_by: user
+questions:
+  - id: Q-1
+    question: Do abnormal results reach a queue the responsible nurse checks?
+    why_it_matters: If not, the problem is routing, not memory.
+    tests: [ASM-1, ASM-2]
+    resolution: data analysis
+    status: open
+  - id: Q-2
+    question: Are missed follow-ups spread across clinics or concentrated?
+    why_it_matters: Concentration would point to a local cause.
+    tests: [ASM-6]
+    resolution: data analysis
+    status: open
+moves: []

@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: solution-in-disguise
+expected_outcome: |
+  Treats the dashboard as a parked candidate solution, asks what outcome it should change and for whom, proposes a depth mode, and classifies the domain, without designing the dashboard.

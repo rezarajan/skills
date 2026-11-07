@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: complex-no-single-root-cause
+expected_outcome: |
+  Classifies the situation as complex (at least in part), does not name a single root cause, treats the failed programmes as evidence about the system, and proposes research or safe-to-fail probes rather than more analysis alone.

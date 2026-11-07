@@ -1,0 +1,25 @@
+# Problem model — see references/model-schema.md for field definitions.
+meta:
+  title: ""
+  depth_mode: quick        # quick | working | full
+  updated: ""              # YYYY-MM-DD
+  domain: []               # [{part, classification, rationale}]
+  wicked_indicators: []
+scope:
+  in: []
+  out: []
+  deferred: []
+problem_statements: []     # [{id: PS-1, text, version_note, alternative_framing}]
+candidate_solutions: []
+stakeholders: []
+jobs: []
+pains: []
+gains: []
+problems: []
+causes: []
+constraints: []
+assumptions: []
+evidence: []
+opportunities: []
+questions: []
+moves: []

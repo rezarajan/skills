@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: respects-skip-request
+expected_outcome: |
+  Respects the opt-out without refusing or lecturing: gives the quick brief (the assumptions the direction rests on and the strongest alternative framing), delivers a complete handoff, states the boundary once, and closes discovery, without designing the app.
