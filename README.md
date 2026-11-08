@@ -29,4 +29,4 @@ Docs live in [`docs/`](docs/README.md) and follow [Diátaxis](https://diataxis.f
   [Validate and package](docs/how-to/validate-and-package.md)
 - Reference: [Repository layout](docs/reference/repo-layout.md),
   [Skill conventions](docs/reference/skill-conventions.md)
-- Explanation: [The problem-space-discovery harness](docs/explanation/problem-space-discovery-harness.md)
+- Explanation: [The problem-space-discovery protocol](docs/explanation/problem-space-discovery-protocol.md)

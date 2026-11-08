@@ -1,4 +1,4 @@
 schema_version: "1.1"
-name: harness-exit-then-continue
+name: protocol-exit-then-continue
 expected_outcome: |
   Treats discovery as closed and engages with the new request directly, without restarting intake, asking discovery questions, reclassifying the domain or applying discovery frameworks; mentions reopening discovery at most once, as an option.

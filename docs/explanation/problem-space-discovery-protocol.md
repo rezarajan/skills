@@ -1,13 +1,14 @@
-# The problem-space-discovery harness
+# The problem-space-discovery protocol
 
-`problem-space-discovery` is built as a harness, not a free-form conversation. It
-has a defined state (the problem model), defined rules (the control loop and its
-checks) and a defined output (the Blueprint or the handoff). It enters, runs,
-hands off and exits, and never operates outside those rules.
+`problem-space-discovery` implements a structured discovery protocol inside the
+harness, rather than holding a free-form conversation. The protocol has a defined
+state (the problem model), defined rules (the control loop and its checks) and a
+defined output contract (the Blueprint or the handoff). It enters, runs, hands off
+and exits cleanly, and never operates outside its own rules.
 
 It helps to read it as a feedback control system:
 
-| Control element | In the harness |
+| Control element | In the protocol |
 | --------------- | -------------- |
 | Setpoint | The definition of done in `SKILL.md` |
 | Plant (the state being controlled) | The problem model, `problem-model.yaml` |
@@ -20,7 +21,7 @@ It helps to read it as a feedback control system:
 The inner loop runs once per turn. Each move changes the model, the sensor
 reads the model back, and the next turn's assessment works on what changed.
 That feedback is why the skill keeps an explicit model rather than relying on
-prose. The supervisor decides which part of the harness a turn enters. It also
+prose. The supervisor decides which part of the protocol a turn enters. It also
 provides the two ways out: the normal path through synthesis and handoff, and
 the opt-out, which can be taken from any state.
 
@@ -89,7 +90,7 @@ flowchart TB
 A discovery skill without a clean exit tends to keep doing discovery: when the
 user opts out, it soft-refuses, and when the user asks a solution question after
 the handoff, it starts intake again. The `closed` state fixes both. Once the
-handoff is delivered, the harness gives up control until the user asks to
+handoff is delivered, the protocol gives up control until the user asks to
 reopen it, and reopening resumes the loop on the saved model instead of
 starting over.
 

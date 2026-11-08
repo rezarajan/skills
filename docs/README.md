@@ -28,4 +28,4 @@ Create a type's directory when its first page is written.
 
 ## Explanation
 
-- [The problem-space-discovery harness](explanation/problem-space-discovery-harness.md)
+- [The problem-space-discovery protocol](explanation/problem-space-discovery-protocol.md)

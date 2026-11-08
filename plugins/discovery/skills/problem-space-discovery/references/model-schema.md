@@ -49,7 +49,7 @@ moves: []                       # log: which framework or move, why, what change
 
 ### State transitions
 
-`meta.status` records where the harness is. Only these transitions are valid:
+`meta.status` records where the protocol is. Only these transitions are valid:
 
 | From | To | When |
 |---|---|---|
